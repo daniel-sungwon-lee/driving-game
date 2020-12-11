@@ -1,0 +1,9 @@
+body{
+  background-color: #A8CCC0;
+}
+.car{
+  max-width: 18rem;
+}
+.car-img{
+  max-width: 100%;
+}
