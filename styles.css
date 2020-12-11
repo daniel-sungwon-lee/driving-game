@@ -7,3 +7,15 @@ body{
 .car-img{
   max-width: 100%;
 }
+.car.north{
+  transform: rotate(270deg);
+}
+.car.south{
+  transform: rotate(90deg);
+}
+.car.east{
+  transform: rotate(0deg);
+}
+.car.west{
+  transform: rotate(180deg);
+}
