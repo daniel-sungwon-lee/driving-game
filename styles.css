@@ -3,19 +3,25 @@ body{
 }
 .car{
   max-width: 18rem;
+  position: relative;
+  top: 6rem;
+  left: 1rem;
 }
 .car-img{
   max-width: 100%;
 }
-.car.north{
+.north{
   transform: rotate(270deg);
 }
-.car.south{
+.south{
   transform: rotate(90deg);
 }
-.car.east{
+.east{
   transform: rotate(0deg);
 }
-.car.west{
+.west{
   transform: rotate(180deg);
+}
+.transition{
+  transition: transform,0.3s, start;
 }
