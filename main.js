@@ -1,14 +1,19 @@
 var $car = document.querySelector("#car")
 var i =1
 
+function moveEast() {
+  i++
+  var stringNum = i.toString()
+  $car.style.left = stringNum + "rem"
+}
+
 document.addEventListener("keydown",function(event){
   if (event.code==="ArrowRight"){
     $car.className= data.east
-    setInterval(function move(){
-      i++
-      var stringNum=i.toString()
-      $car.style.left=stringNum+"rem"
-    },16)
+    var start=setInterval(moveEast,16)
+    document.addEventListener("keydown",function(){
+      clearInterval(start)
+    })
   } else if (event.code==="ArrowDown"){
     $car.className= data.south
   } else if (event.code==="ArrowLeft"){
