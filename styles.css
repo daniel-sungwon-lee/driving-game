@@ -3,7 +3,7 @@ body{
 }
 .car{
   max-width: 18rem;
-  position: relative;
+  position: absolute;
   top: 6rem;
   left: 1rem;
 }
@@ -23,5 +23,5 @@ body{
   transform: rotate(180deg);
 }
 .transition{
-  transition: transform,0.3s, start;
+  transition: transform,0.3s,jump-none;
 }
