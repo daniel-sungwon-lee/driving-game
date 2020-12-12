@@ -1,31 +1,122 @@
 var $car = document.querySelector("#car")
-var i =1
+
+function Car(direction) {
+  this.direction = direction
+  this.location = []
+  this.started = false
+}
+
+var car =null
+var start = null
 
 function moveEast() {
-  i++
-  var stringNum = i.toString()
-  $car.style.left = stringNum + "rem"
+  var i = car.location[0]
+  var nextNum=i+16
+  var stringNum = nextNum.toString()
+  $car.style.left = stringNum + "px"
+  var newNum=parseInt(stringNum)
+  car.location.splice(0,1,newNum)
+}
+
+function moveWest() {
+  var i = car.location[0]
+  var nextNum = i - 16
+  var stringNum = nextNum.toString()
+  $car.style.left = stringNum + "px"
+  var newNum = parseInt(stringNum)
+  car.location.splice(0, 1, newNum)
+}
+
+function moveSouth() {
+  var i =car.location[1]
+  var nextNum=i+16
+  var stringNum = nextNum.toString()
+  $car.style.top = stringNum + "px"
+  var newNum=parseInt(stringNum)
+  car.location.splice(1,1,newNum)
+}
+
+function moveNorth() {
+  var i = car.location[1]
+  var nextNum = i - 16
+  var stringNum = nextNum.toString()
+  $car.style.top = stringNum + "px"
+  var newNum = parseInt(stringNum)
+  car.location.splice(1, 1, newNum)
 }
 
 document.addEventListener("keydown",function(event){
+
   if (event.code==="ArrowRight"){
-    $car.className= data.east
-    var start=setInterval(moveEast,16)
-    document.addEventListener("keydown",function(){
-      clearInterval(start)
-    })
+    car=new Car("east")
+    $car.className= "car east transition"
+
+    var x = getComputedStyle($car).left
+    var y = getComputedStyle($car).top
+    car.location.push(parseInt(x))
+    car.location.push(parseInt(y))
+
+    clearInterval(start)
+    car.started = false
+
+    if (car === null ||car.started===false){
+      start=setInterval(moveEast,16)
+      car.started=true
+    }
+
   } else if (event.code==="ArrowDown"){
-    $car.className= data.south
+    car =new Car("south")
+    $car.className= "car south transition"
+
+    var x = getComputedStyle($car).left
+    var y = getComputedStyle($car).top
+    car.location.push(parseInt(x))
+    car.location.push(parseInt(y))
+
+    clearInterval(start)
+    car.started = false
+
+    if (car === null || car.started === false){
+      start=setInterval(moveSouth,16)
+      car.started = true
+    }
+
   } else if (event.code==="ArrowLeft"){
-    $car.className=data.west
+    car =new Car("west")
+    $car.className= "car west transition"
+
+    var x = getComputedStyle($car).left
+    var y = getComputedStyle($car).top
+    car.location.push(parseInt(x))
+    car.location.push(parseInt(y))
+
+    clearInterval(start)
+    car.started = false
+
+    if (car === null || car.started === false){
+      start = setInterval(moveWest,16)
+      car.started = true
+    }
+
   } else if (event.code==="ArrowUp"){
-    $car.className=data.north
+    car =new Car("north")
+    $car.className= "car north transition"
+
+    var x = getComputedStyle($car).left
+    var y = getComputedStyle($car).top
+    car.location.push(parseInt(x))
+    car.location.push(parseInt(y))
+
+    clearInterval(start)
+    car.started=false
+
+    if (car === null || car.started === false){
+      start=setInterval(moveNorth,16)
+      car.started = true
+    }
+
+  }else if (event.code==="Space"){
+    clearInterval(start)
+    car.started=false
   }
 })
-
-var data = {
-  north: "car north transition",
-  south: "car south transition",
-  east: "car east transition",
-  west: "car west transition"
-}
