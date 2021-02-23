@@ -1,6 +1,6 @@
 # Drive
 
-An HTML, CSS, and JavaScript driving game.
+A Simple, Fun, driving game made using JavaScript, HTML, and CSS.
 
 Live link: https://daniel-sungwon-lee.github.io/driving-game/
 
