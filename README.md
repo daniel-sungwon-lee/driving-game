@@ -1,4 +1,4 @@
-# driving-game
+# Drive
 
 An HTML, CSS, and JavaScript driving game.
 
